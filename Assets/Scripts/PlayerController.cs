@@ -26,11 +26,6 @@ public class PlayerController : MonoBehaviour
         {
             flashLight.SetActive(flashLight.activeSelf ? false : true);
         }
-
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Fire();
-        }
     }
 
     private void Move()
@@ -52,10 +47,5 @@ public class PlayerController : MonoBehaviour
 
         transform.Rotate(Vector3.up, rotateSpeed * x * Time.deltaTime);
         camTransform.Rotate(Vector3.right, rotateSpeed * -y * Time.deltaTime);
-    }
-
-    private void Fire()
-    {
-        
     }
 }
