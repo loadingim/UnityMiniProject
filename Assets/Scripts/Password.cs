@@ -7,16 +7,16 @@ using UnityEngine.UI;
 public class Password : MonoBehaviour
 {
     [SerializeField] GameObject openBox;
-    [SerializeField] InputField Pass;
-    [SerializeField] TMP_InputField passtmp;
+    [SerializeField] GameObject box;
+    [SerializeField] TMP_InputField Passtmp;
     [SerializeField] GameObject InputPass;
     [SerializeField] string pw = "6666";
+    
 
     private void OnEnable()
     {
         Cursor.lockState = CursorLockMode.None;
         InputPass.SetActive(true);
-        Pass.text = "";
     }
 
     private void OnDisable()
@@ -27,21 +27,22 @@ public class Password : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("실행");
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             gameObject.SetActive(false);
         }
         else
         {
-            if (Pass.text == pw)
+            if (Passtmp.text == pw)
             {
+                Debug.Log("정답");
                 openBox.SetActive(true);
-
-                Destroy(gameObject);
+                Destroy(box);
             }
             else
             {
-                Pass.text = "";
+                Debug.Log("틀림");
             }
         }
     }
